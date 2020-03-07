@@ -22,17 +22,17 @@ class UserEconomy:
         level (int): level of the user
         xp (int): amount of xp the user has
     """
-    def __init__(self, name, bank, level, xp):
+    def __init__(self, name, balance, level, xp):
         self.name = name
-        self.bank = bank
+        self.balance = balance
         self.level = level
         self.xp = xp
 
     def get_name(self):
         return self.name
 
-    def get_bank(self):
-        return self.bank
+    def get_balance(self):
+        return self.balance
 
     def get_level(self):
         return self.level
@@ -40,8 +40,8 @@ class UserEconomy:
     def get_xp(self):
         return self.xp
 
-    def set_bank(self, bank):
-        self.bank = bank
+    def set_balance(self, balance):
+        self.balance = balance
 
     def set_level(self, level):
         self.level = level
@@ -52,7 +52,7 @@ class UserEconomy:
     def __str__(self):
         return "%s %d %d %d" % (
             self.name,
-            self.bank,
+            self.balance,
             self.level,
             self.xp
         )
