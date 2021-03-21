@@ -15,7 +15,7 @@ from cogs.orb_control import allowed_channel, db
 
 COMMANDS_VERSION = {
     "Version": "7",
-    "Count": "17"
+    "Count": "19"
 }
 
 # PUBLIC list of commands, not all of them
@@ -41,7 +41,9 @@ COMMAND_DATA = {
     "nimble": ("Horses. Lots of horses.", "None"),
     "haze": ("Do your assignment", "None"),
     "pablo": ("Personal flamingos", "None"),
-    "dad": ("Hi x, I'm y joke", "Any input")
+    "dad": ("Hi x, I'm y joke", "Any input"),
+    "gundam": ("Gives gundam stuff", "None"),
+    "salty": ("When someone's salty, give them this meme", "None")
 }
 
 class CommandsCog(bot_commands.Cog):
@@ -275,6 +277,20 @@ class CommandsCog(bot_commands.Cog):
             await ctx.trigger_typing()
             await ctx.send("Hi, {}, I'm {}!".format(' '.join(args), ctx.author.name))
 
+    # Gundam
+    @bot_commands.command()
+    async def gundam(self, ctx):
+        if allowed_channel(ctx):
+            await ctx.trigger_typing()
+            await ctx.send(file=discord.File(fp="images/gundam.png"))
+
+    # Salty
+    @bot_commands.command()
+    async def salty(self, ctx):
+        if allowed_channel(ctx):
+            await ctx.trigger_typing()
+            await ctx.send(file=discord.File(fp="images/salty.jpeg"))
+
     # Pablo
     @bot_commands.command()
     async def pablo(self, ctx):
@@ -293,10 +309,6 @@ class CommandsCog(bot_commands.Cog):
             await ctx.trigger_typing()
             if random.randint(1,10) == 5:
                 await ctx.send("I want EVERY assignment done in:")
-                await ctx.send("5")
-                time.sleep(1)
-                await ctx.send("4")
-                time.sleep(1)
                 await ctx.send("3")
                 time.sleep(1)
                 await ctx.send("2")
@@ -305,7 +317,7 @@ class CommandsCog(bot_commands.Cog):
                 time.sleep(1)
                 await ctx.send("Thanks for finishing those assignments! Remember: Liars get SMACK'd")
             else:
-                await ctx.send(random.choice([("Haze, you should be doing your assignment"), ("I swear on Sumako - if that assignment isn't done yet..."), ('"cranes are great" - Haze'), ("I don't want to hear you complaining about your assignments... EVER")]), )
+                await ctx.send(random.choice([("HAZE! You should be doing your assignment"), ("I swear on Sumako - if that assignment isn't done yet..."), ('"cranes are great" - Haze'), ("I don't want to hear you complaining about your assignments... EVER")]), )
 
     # Illya
     @bot_commands.command()
